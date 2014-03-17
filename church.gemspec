@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Three If By Whiskey"]
   spec.email         = ["3ifbyw@gmail.com"]
   spec.summary       = %q{Church provides top-level constant Procs to do various and sundry kinds of functional programming.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/threeifbywhiskey/church"
   spec.license       = "WTFPL"
 
   spec.files         = `git ls-files -z`.split("\x0")
