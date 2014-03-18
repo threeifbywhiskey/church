@@ -1,8 +1,11 @@
 module Church
+  # Returns the keys of a Hash as an array
   KEYS   = -> hash { MAP[[*hash], &:first] }
 
+  # Returns the values of a Hash as an array
   VALUES = -> hash { MAP[[*hash], &:last]  }
 
+  # Inverts the keys and values of its hash argument
   INVERT = -> hash {
     ks, vs = KEYS[hash], VALUES[hash]
     sz = SIZE[ks]
@@ -15,6 +18,7 @@ module Church
     })[]
   }
 
+  # Merges the keys and values of the two hashes into a new hash
   MERGE = -> a, b {
     all = [*a] + [*b]
     sz  = SIZE[all]
