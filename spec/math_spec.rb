@@ -16,7 +16,7 @@ describe 'FLOOR' do
 end
 
 describe 'PRIME' do
-  (-25..25).each do |i|
+  (-6..6).each do |i|
     it "should return its argument's primality" do
       expect(PRIME[i]).to be i.prime?
     end

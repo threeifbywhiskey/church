@@ -3,18 +3,14 @@ require 'spec_helper'
 include Church
 
 describe 'CHR' do
-  (1..122).each do |ord|
-    it "should return its argument's corresponding character" do
-      expect(CHR[ord]).to eq ord.chr
-    end
+  it "should return its argument's corresponding character" do
+    expect(CHR[83]).to eq 83.chr
   end
 end
 
 describe 'ORD' do
-  ("\1".."z").each do |chr|
-    it "should return its argument's corresponding ordinal value" do
-      expect(ORD[chr]).to be chr.ord
-    end
+  it "should return its argument's corresponding ordinal value" do
+    expect(ORD['q']).to be 'q'.ord
   end
 end
 
