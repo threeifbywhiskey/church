@@ -47,7 +47,7 @@ module Church
     ret = coll[0]
     i = 1
 
-    (reducer = -> {
+    sz == 1 ? ret : (reducer = -> {
       ret = fn[ret, coll[i]]
       (i += 1) == sz ? ret : reducer[]
     })[]
