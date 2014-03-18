@@ -18,3 +18,13 @@ describe 'ROT13' do
     expect(ROT13[' ']).to eq ' '
   end
 end
+
+describe 'COLLATZ' do
+  it "should return its arguments Collatz sequence as an array" do
+    expect(COLLATZ[10]).to eq [10, 5, 16, 8, 4, 2, 1]
+  end
+
+  it "should work on 194" do
+    expect(SIZE[COLLATZ[194]]).to be 120
+  end
+end
