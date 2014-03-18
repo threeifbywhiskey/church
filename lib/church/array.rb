@@ -80,4 +80,12 @@ module Church
       (i += 1) == sz ? coll : eacher[]
     })[]
   }
+
+  SORT = -> coll {
+    x, *xs = *coll
+    coll == [] ? []
+    : SORT[FILTER[xs, &-> y { y  < x }]] + 
+      [x] +
+      SORT[FILTER[xs, &-> y { y >= x }]]
+  }
 end

@@ -42,3 +42,9 @@ describe 'FILTER' do
     expect(FILTER[[1, 2, 3, 4], &:even?]).to eq [2, 4]
   end
 end
+
+describe 'SORT' do
+  it "should sort an array" do
+    expect(SORT[[4, 3, 2, 2, 1, 3]]).to eq [1, 2, 2, 3, 3, 4]
+  end
+end
