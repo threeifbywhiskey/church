@@ -12,4 +12,9 @@ describe 'ROT13' do
     expect(ROT13['M']).to eq 'Z'
     expect(ROT13['Z']).to eq 'M'
   end
+
+  it "should not touch a non-alphabetical character" do
+    expect(ROT13['!']).to eq '!'
+    expect(ROT13[' ']).to eq ' '
+  end
 end
