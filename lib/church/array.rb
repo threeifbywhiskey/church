@@ -81,6 +81,17 @@ module Church
     })[]
   }
 
+  INDEXED = -> coll {
+    sz = SIZE[coll]
+    ret = []
+    i = 0
+
+    (indexer = -> {
+      ret << [coll[i], i]
+      (i += 1) == sz ? ret : indexer[]
+    })[]
+  }
+
   SORT = -> coll {
     x, *xs = *coll
     coll == [] ? []

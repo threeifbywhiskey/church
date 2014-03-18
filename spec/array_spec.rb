@@ -48,3 +48,9 @@ describe 'SORT' do
     expect(SORT[[4, 3, 2, 2, 1, 3]]).to eq [1, 2, 2, 3, 3, 4]
   end
 end
+
+describe 'INDEXED' do
+  it "should zip a collection with indices" do
+    expect(INDEXED[[1, 2, 3]]).to eq [[1, 0], [2, 1], [3, 2]]
+  end
+end
