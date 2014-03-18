@@ -27,7 +27,3 @@ module Church
     })[]
   }
 end
-
-include Church
-
-p INVERT[{a: 1, b: 2, c: 3}]
