@@ -43,9 +43,25 @@ describe 'FILTER' do
   end
 end
 
+describe 'REVERSE' do
+  it "should reverse an array" do
+    expect(REVERSE[[1, 2, 3]]).to eq [3, 2, 1]
+  end
+
+  it "should reverse a string" do
+    expect(REVERSE["Ruby"]).to eq "ybuR"
+  end
+end
+
 describe 'SORT' do
   it "should sort an array" do
     expect(SORT[[4, 3, 2, 2, 1, 3]]).to eq [1, 2, 2, 3, 3, 4]
+  end
+end
+
+describe 'RSORT' do
+  it "should sort an array in reverse order" do
+    expect(RSORT[[2, 1, 3]]).to eq [3, 2, 1]
   end
 end
 

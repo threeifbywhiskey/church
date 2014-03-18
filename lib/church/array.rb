@@ -81,6 +81,7 @@ module Church
     })[]
   }
 
+  # Zips each element of coll with its index within the collection.
   INDEXED = -> coll {
     sz = SIZE[coll]
     ret = []
@@ -92,6 +93,19 @@ module Church
     })[]
   }
 
+  # Reverses the collection.
+  REVERSE = -> coll {
+    sz = SIZE[coll]
+    ret = coll[0, 0]
+    i = sz
+
+    (reverser = -> {
+      ret << coll[i - 1]
+      (i -= 1) == 0 ? ret : reverser[]
+    })[]
+  }
+
+  # Sorts the collection.
   SORT = -> coll {
     x, *xs = *coll
     coll == [] ? []
@@ -99,4 +113,7 @@ module Church
       [x] +
       SORT[FILTER[xs, &-> y { y >= x }]]
   }
+
+  # Sorts the collection in reverse order.
+  RSORT = -> coll { REVERSE[SORT[coll]] }
 end
