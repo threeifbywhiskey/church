@@ -6,6 +6,7 @@ module Church::Utils
     ord > 96 && ord < 123 ? CHR[(ord - 110) % 26 + 97] : chr
   }
 
+  # Returns its argument's Collatz sequence as an array
   COLLATZ = -> n {
     c = [n]
     (collatz_p = -> {
