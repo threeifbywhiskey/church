@@ -29,3 +29,10 @@ describe 'JOIN' do
     expect(JOIN[[1, 2, 3], '']).to eq '123'
   end
 end
+
+describe 'TO_I' do
+  it "should convert its argument to a number" do
+    expect(TO_I['0']).to be 0
+    expect(TO_I['12345']).to be 12345
+  end
+end
