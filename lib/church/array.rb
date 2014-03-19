@@ -83,4 +83,10 @@ module Church
 
   # Sorts the collection in reverse order.
   RSORT = COMPOSE[REVERSE, SORT]
+
+  # Returns the collection with the first n elements dropped.
+  DROP = -> coll, n { coll[n..-1] }
+
+  # Returns the first n elements of the collection.
+  TAKE = -> coll, n { coll[0, n] }
 end

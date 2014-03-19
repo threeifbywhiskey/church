@@ -78,3 +78,15 @@ describe 'EACH' do
     expect(x).to be 6
   end
 end
+
+describe 'DROP' do
+  it "should drop the first n elements of a collection" do
+    expect(DROP[[1, 2, 3, 4], 2]).to eq [3, 4]
+  end
+end
+
+describe 'TAKE' do
+  it "should take the first n elements of a collection" do
+    expect(TAKE[[1, 2, 3, 4], 2]).to eq [1, 2]
+  end
+end
