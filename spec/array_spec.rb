@@ -98,3 +98,10 @@ describe 'TAKE' do
     expect(TAKE[[1, 2, 3, 4], 2]).to eq [1, 2]
   end
 end
+
+describe 'INDEX' do
+  it "should find the indices of characters within strings" do
+    expect(INDEX['abc', 'b']).to be 1
+    expect(INDEX['abc', 'd']).to be nil
+  end
+end

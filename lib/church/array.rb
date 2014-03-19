@@ -97,4 +97,11 @@ module Church
 
   # Returns the first n elements of the collection.
   TAKE = -> coll, n { coll[0, n] }
+
+  # Returns the index of the element within the collection, or nil if not found.
+  INDEX = -> coll, elem {
+    (indexer = -> i {
+      coll[i] == elem ? i : i > SIZE[elem] ? nil : indexer[i + 1]
+    })[0]
+  }
 end
