@@ -122,3 +122,13 @@ describe 'INDEX' do
     expect(INDEX[[1, 2, 3], 4]).to be nil
   end
 end
+
+describe 'PRODUCT' do
+  let(:a) { [1, 2, :potato] }
+  let(:b) { [3, 4] }
+
+  it "should return the product of two arrays" do
+    expect(PRODUCT[a, b]).to eq a.product b
+    expect(PRODUCT[b, a]).to eq b.product a
+  end
+end

@@ -103,4 +103,11 @@ module Church
       coll[i] == elem ? i : i > SIZE[coll] ? nil : indexer[i + 1]
     })[0]
   }
+
+  # Returns the product of two arrays
+  PRODUCT = -> a, b {
+    REDUCE[MAP[[*0...SIZE[a]],
+               &-> x { MAP[[*0...SIZE[b]],
+                           &-> y { [a[x], b[y]] }] }], &:+]
+  }
 end
