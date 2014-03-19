@@ -81,6 +81,14 @@ module Church
       SORT[FILTER[xs, &-> y { y >= x }]]
   }
 
+  SORT_BY = -> coll, &fn {
+    x, *xs = *coll
+    coll == [] ? []
+    : SORT_BY[FILTER[xs, &-> y { (fn[x] <=> fn[y]) == 1 }], &fn] + 
+      [x] +
+      SORT_BY[FILTER[xs, &-> y { (fn[x] <=> fn[y]) <= 0 }], &fn]
+  }
+
   # Sorts the collection in reverse order.
   RSORT = COMPOSE[REVERSE, SORT]
 

@@ -59,6 +59,14 @@ describe 'SORT' do
   end
 end
 
+describe 'SORT_BY' do
+  let(:order) { [1, 2, 3, 4, 5] }
+
+  it "should sort an array using the supplied function" do
+    expect(SORT_BY[[4, 2, 5, 1, 3], &-> n { order.index n }]).to eq order
+  end
+end
+
 describe 'RSORT' do
   it "should sort an array in reverse order" do
     expect(RSORT[[2, 1, 3]]).to eq [3, 2, 1]
