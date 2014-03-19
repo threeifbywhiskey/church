@@ -9,25 +9,21 @@ module Church
   INVERT = -> hash {
     ks, vs = KEYS[hash], VALUES[hash]
     sz = SIZE[ks]
-    ret = {}
-    i = 0
 
-    (inverter = -> {
+    (inverter = -> ret, i {
       ret[vs[i]] = ks[i]
-      (i += 1) == sz ? ret : inverter[]
-    })[]
+      (i += 1) == sz ? ret : inverter[ret, i]
+    })[{}, 0]
   }
 
   # Merges the keys and values of the two hashes into a new hash
   MERGE = -> a, b {
     all = [*a] + [*b]
     sz  = SIZE[all]
-    ret = {}
-    i = 0
 
-    (merger = -> {
+    (merger = -> ret, i {
       ret[all[i][0]] = all[i][1]
-      (i += 1) == sz ? ret : merger[]
-    })[]
+      (i += 1) == sz ? ret : merger[ret, i]
+    })[{}, 0]
   }
 end

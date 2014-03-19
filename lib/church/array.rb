@@ -12,24 +12,22 @@ module Church
   # Maps fn over coll in-place, modifying the original collection.
   MAP_BANG = -> coll, &fn {
     sz = SIZE[coll]
-    i = 0
 
-    (mapper = -> {
+    (mapper = -> i {
       coll[i] = fn[coll[i]]
-      (i += 1) == sz ? coll : mapper[]
-    })[]
+      (i += 1) == sz ? coll : mapper[i]
+    })[0]
   }
 
   # Reduces fn over coll.
   REDUCE = -> coll, &fn {
     sz = SIZE[coll]
     ret = coll[0]
-    i = 1
 
-    sz == 1 ? ret : (reducer = -> {
+    sz == 1 ? ret : (reducer = -> i {
       ret = fn[ret, coll[i]]
-      (i += 1) == sz ? ret : reducer[]
-    })[]
+      (i += 1) == sz ? ret : reducer[i]
+    })[1]
   }
 
   # Filters coll through fn.
@@ -40,36 +38,31 @@ module Church
   # Performs fn with each element of coll in turn.
   EACH = -> coll, &fn {
     sz = SIZE[coll]
-    i = 0
 
-    (eacher = -> {
+    (eacher = -> i {
       fn[coll[i]]
-      (i += 1) == sz ? coll : eacher[]
-    })[]
+      (i += 1) == sz ? coll : eacher[i]
+    })[0]
   }
 
   # Zips each element of coll with its index within the collection.
   INDEXED = -> coll {
     sz = SIZE[coll]
-    ret = []
-    i = 0
 
-    (indexer = -> {
+    (indexer = -> ret, i {
       ret << [coll[i], i]
-      (i += 1) == sz ? ret : indexer[]
-    })[]
+      (i += 1) == sz ? ret : indexer[ret, i]
+    })[[], 0]
   }
 
   # Reverses the collection.
   REVERSE = -> coll {
     sz = SIZE[coll]
-    ret = coll[0, 0]
-    i = sz
 
-    (reverser = -> {
+    (reverser = -> ret, i {
       ret << coll[i - 1]
-      (i -= 1) == 0 ? ret : reverser[]
-    })[]
+      (i -= 1) == 0 ? ret : reverser[ret, i]
+    })[coll[0, 0], sz]
   }
 
   # Sorts the collection.

@@ -18,13 +18,11 @@ module Church
   # Returns an array of the characters of a string
   CHARS = -> str {
     sz = SIZE[str]
-    ret = []
-    i = 0
 
-    (chars_p = -> {
+    (chars_p = -> ret, i {
       ret << str[i]
-      (i += 1) == sz ? ret : chars_p[]
-    })[]
+      (i += 1) == sz ? ret : chars_p[ret, i]
+    })[[], 0]
   }
 
   # Joins the collection into a string on a specified delimiter
