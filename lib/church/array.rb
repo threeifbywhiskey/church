@@ -115,5 +115,6 @@ module Church
   }
 
   # Sorts the collection in reverse order.
-  RSORT = -> coll { REVERSE[SORT[coll]] }
+  # RSORT = -> coll { REVERSE[SORT[coll]] }
+  RSORT = COMPOSE[REVERSE, SORT]
 end
