@@ -8,11 +8,9 @@ module Church::Utils
 
   # Returns its argument's Collatz sequence as an array
   COLLATZ = -> n {
-    c = [n]
-    (collatz_p = -> {
+    (collatz_p = -> cs {
       n = n % 2 == 0 ? n / 2 : n * 3 + 1
-      c << n
-      n == 1 ? c : collatz_p[]
-    })[]
+      n == 1 ? cs << 1 : collatz_p[cs << n]
+    })[[n]]
   }
 end
