@@ -28,3 +28,10 @@ describe 'COLLATZ' do
     expect(SIZE[COLLATZ[194]]).to be 120
   end
 end
+
+describe 'DIGITSUM' do
+  it "should return the digital sum of its argument" do
+    expect(DIGITSUM[12345]).to be 15
+    expect(DIGITSUM[0]).to be 0
+  end
+end

@@ -13,4 +13,10 @@ module Church::Utils
       n == 1 ? cs << 1 : collatz_p[cs << n]
     })[[n]]
   }
+
+  DIGITSUM = -> n {
+    (summer = -> sum {
+      (n /= 10) == 0 ? sum : summer[sum + n % 10]
+    })[n % 10]
+  }
 end
