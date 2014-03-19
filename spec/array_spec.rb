@@ -73,6 +73,18 @@ describe 'RSORT' do
   end
 end
 
+describe 'MIN' do
+  it "should return the collection's minimum" do
+    expect(MIN[[2, 1, 3]]).to be 1
+  end
+end
+
+describe 'MAX' do
+  it "should return the collection's minimum" do
+    expect(MAX[[3, 1, 2]]).to be 3
+  end
+end
+
 describe 'INDEXED' do
   it "should zip a collection with indices" do
     expect(INDEXED[[1, 2, 3]]).to eq [[1, 0], [2, 1], [3, 2]]

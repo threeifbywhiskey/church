@@ -85,6 +85,12 @@ module Church
   # Sorts the collection in reverse order.
   RSORT = COMPOSE[REVERSE, SORT]
 
+  # Returns the collection's minimum.
+  MIN = -> coll { SORT[coll][ 0] }
+
+  # Returns the collection's maximum.
+  MAX = -> coll { SORT[coll][-1] }
+
   # Returns the collection with the first n elements dropped.
   DROP = -> coll, n { coll[n..-1] }
 
