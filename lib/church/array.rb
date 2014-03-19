@@ -1,15 +1,15 @@
 module Church
-  # Returns the size of an array or string using recursion.
+  # Returns the size of an array or string.
   SIZE = -> coll {
     coll == [] || coll == '' ? 0 : 1 + SIZE[coll[1..-1]]
   }
 
-  # Maps fn over coll recursively.
+  # Maps fn over coll.
   MAP = -> coll, &fn {
     coll == [] ? [] : [fn[coll[0]]] + MAP[coll[1..-1], &fn]
   }
 
-  # Maps fn over coll iteratively and in-place, modifying the original collection.
+  # Maps fn over coll in-place, modifying the original collection.
   MAP_BANG = -> coll, &fn {
     sz = SIZE[coll]
     i = 0
@@ -20,7 +20,7 @@ module Church
     })[]
   }
 
-  # Reduces fn over coll iteratively.
+  # Reduces fn over coll.
   REDUCE = -> coll, &fn {
     sz = SIZE[coll]
     ret = coll[0]
@@ -32,7 +32,7 @@ module Church
     })[]
   }
 
-  # Filters coll through fn using recursion.
+  # Filters coll through fn.
   FILTER = -> coll, &fn {
     coll == [] ? [] : (fn[coll[0]] ? [coll[0]] : []) + FILTER[coll[1..-1], &fn]
   }
