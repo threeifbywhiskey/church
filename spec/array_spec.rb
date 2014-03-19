@@ -70,3 +70,11 @@ describe 'INDEXED' do
     expect(INDEXED[[1, 2, 3]]).to eq [[1, 0], [2, 1], [3, 2]]
   end
 end
+
+describe 'EACH' do
+  it "should perform fn for each element in coll" do
+    x = 0
+    EACH[[1, 2, 3], &-> n { x += n }]
+    expect(x).to be 6
+  end
+end
