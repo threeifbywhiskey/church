@@ -1,5 +1,9 @@
 # Church
 
+[![Gem Version](https://badge.fury.io/rb/church.png)](http://badge.fury.io/rb/church)
+[![Build Status](https://travis-ci.org/threeifbywhiskey/church.png?branch=master)](https://travis-ci.org/threeifbywhiskey/church)
+
+
 **Church** is a module that wraps a bunch of constant Procs that do various functional programming tricks.
 
 ### Examples
