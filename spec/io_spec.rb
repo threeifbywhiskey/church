@@ -36,3 +36,15 @@ describe 'TO_I' do
     expect(TO_I['12345']).to be 12345
   end
 end
+
+describe 'PRINT' do
+  it "should write its argument to standard output" do
+    expect(capture_stdout { PRINT['Alonzo'] }).to eq 'Alonzo'
+  end
+end
+
+describe 'PUTS' do
+  it "should write its argument to standard output with a newline" do
+    expect(capture_stdout { PUTS['Church'] }).to eq "Church\n"
+  end
+end
