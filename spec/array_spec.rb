@@ -104,4 +104,9 @@ describe 'INDEX' do
     expect(INDEX['abc', 'b']).to be 1
     expect(INDEX['abc', 'd']).to be nil
   end
+
+  it "should find the indices of elements within arrays" do
+    expect(INDEX[[1, 2, 3], 3]).to be 2
+    expect(INDEX[[1, 2, 3], 4]).to be nil
+  end
 end
